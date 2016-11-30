@@ -1,0 +1,26 @@
+{
+  "name": "rancher-github-proxy",
+  "version": "1.0.0",
+  "description": "Proxy container for working with github private repos.",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extremeprog-com/rancher-github-proxy.git"
+  },
+  "keywords": [
+    "rancher",
+    "github"
+  ],
+  "author": "myfoxtail",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/extremeprog-com/rancher-github-proxy/issues"
+  },
+  "homepage": "https://github.com/extremeprog-com/rancher-github-proxy#readme",
+  "dependencies": {
+    "pushover": "^1.3.6"
+  }
+}
