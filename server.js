@@ -14,10 +14,11 @@ if (fs.existsSync(key_filename)) {
 
     if (!fs.existsSync(dirname)) {
         exec('mkdir -p ' + dirname +
-            '; chmod 700 ' + dirname + ' echo $PRIVATE_KEY > ' + key_filename +
+            '; echo "$PRIVATE_KEY" > ' + key_filename +
+            '; (echo "Host *"; echo "StrictHostKeyChecking no") > ' + dirname + '/config' +
             '; chmod 600 ' + key_filename +
-            '; echo Host *\n\tStrictHostKeyChecking no > ' + dirname + '/config' +
-            '; chmod 400 ' + + dirname + '/config'
+            '; chmod 400 ' + dirname + '/config' +
+            '; chmod 700 ' + dirname
         );
     }
 }
