@@ -5,7 +5,7 @@ const exec      = require('child_process').exec;
 const fs        = require('fs');
 const path      = require('path');
 
-var key_filename = 'root/.ssh/id_rsa';
+var key_filename = '/root/.ssh/id_rsa';
 
 if (fs.existsSync(key_filename)) {
     console.log('The file with a private key already exists.');
@@ -16,7 +16,8 @@ if (fs.existsSync(key_filename)) {
         exec('mkdir -p ' + dirname +
             '; chmod 700 ' + dirname + ' echo $PRIVATE_KEY > ' + key_filename +
             '; chmod 600 ' + key_filename +
-            '; echo StrictHostKeyChecking no > ' + dirname + '/config'
+            '; echo Host *\n\tStrictHostKeyChecking no > ' + dirname + '/config' +
+            '; chmod 400 ' + + dirname + '/config'
         );
     }
 }
