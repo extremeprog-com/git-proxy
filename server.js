@@ -1,9 +1,11 @@
-const pushover  = require('pushover');
-const repos     = pushover('tmp/repos');
-const http      = require('http');
-const exec      = require('child_process').exec;
-const fs        = require('fs');
-const path      = require('path');
+const REPOS_PATH = 'tmp/repos';
+
+const pushover   = require('pushover');
+const repos      = pushover(REPOS_PATH);
+const http       = require('http');
+const exec       = require('child_process').exec;
+const fs         = require('fs');
+const path       = require('path');
 
 var key_filename = '/root/.ssh/id_rsa';
 
@@ -36,7 +38,12 @@ repos.on('info', function(info) {
 });
 
 var server = http.createServer(function (req, res) {
-    repos.handle(req, res);
+    if(req.url.match(/\.git$/)) {
+        res.statusCode = 200;
+        res.end('ok');
+    } else {
+        repos.handle(req, res);
+    }
 });
 
 server.listen(process.env.PORT || 8080);
