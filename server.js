@@ -27,8 +27,8 @@ if (fs.existsSync(key_filename)) {
 
 repos.on('info', function(info) {
     exec(info.exists
-        ? 'cd ' + info.cwd + '; git fetch -p'
-        : 'git clone --bare ' + info.repo + ' ' + info.cwd, function(err) {
+        ? 'cd ' + info.cwd + '; git fetch --all -p'
+        : 'git clone --mirror ' + info.repo + ' ' + info.cwd, function(err) {
         if (!err) {
             info.accept();
         } else {
