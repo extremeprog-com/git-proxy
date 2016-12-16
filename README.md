@@ -18,3 +18,4 @@ $ docker run -d -it --restart=always --name=git-proxy \
 
 ### Rancher
 If you use Rancher you can install Git Proxy service over our extremeprog custom cattle (until it is not added to the main Rancher cattle). Refer to this link https://github.com/extremeprog-com/rancher-catalog.
+In Rancher you can use it for connecting private cattles and installing services from your private repos.
