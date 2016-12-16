@@ -1,6 +1,6 @@
 # Git Proxy
 
-![Git Proxy Service](git-proxy.png =250x250) 
+![Git Proxy Service](git-proxy-sm.png) 
 
 Easy access to private repos for automation services.
 
