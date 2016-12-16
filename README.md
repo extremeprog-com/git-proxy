@@ -1,4 +1,7 @@
 # Git Proxy
+
+![Git Proxy Service](git-proxy.svg) 
+
 Easy access to private repos for automation services.
 
 Git Proxy exists to organize a painful and secure access to private repos for automation services like Rancher, Jenkins, TeamCity, etc. View on Github
