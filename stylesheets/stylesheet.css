@@ -10,10 +10,14 @@ body {
   color: #606c71; }
 
 a {
-  color: #1e6bb8;
-  text-decoration: none; }
+  color: #192038;
+  text-decoration: none;
+  border-bottom: 1px dashed; }
   a:hover {
-    text-decoration: underline; }
+    color: white;
+    background: #192038;
+    transition: 250ms;
+  }
 
 .btn {
   display: inline-block;
@@ -55,13 +59,12 @@ a {
 
 .page-header {
   color: #fff;
-  text-align: center;
-  background-color: #159957;
-  background-image: linear-gradient(120deg, #155799, #159957); }
+  font-family: "Arial Black";
+  background: #192038; }
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 2rem 6rem 1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
@@ -88,8 +91,9 @@ a {
     font-size: 1.75rem; } }
 
 .project-tagline {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: normal;
+  font-family: "Avenir Next";
   opacity: 0.7; }
 
 @media screen and (min-width: 64em) {
@@ -207,7 +211,6 @@ a {
   .main-content {
     max-width: 64rem;
     padding: 2rem 6rem;
-    margin: 0 auto;
     font-size: 1.1rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
