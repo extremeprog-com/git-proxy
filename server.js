@@ -9,6 +9,25 @@ const path       = require('path');
 
 var key_filename = '/root/.ssh/id_rsa';
 
+var locked = {};
+
+function lock(key, real_action, continue_action) {
+
+    function remove_lock(result) {
+        if(!locked[key]) return;
+        locked[key].map(function(cb){try{cb(result)}catch(e){console.error(e)}});
+        delete locked[key];
+    }
+
+    if(!locked[key]) {
+        setTimeout(function() { remove_lock(null); }, 10000);
+        locked[key] = [continue_action];
+        real_action(remove_lock)
+    } else {
+        locked[key].push(continue_action);
+    }
+}
+
 if (fs.existsSync(key_filename)) {
     console.log('The file with a private key already exists.');
 } else {
@@ -26,15 +45,23 @@ if (fs.existsSync(key_filename)) {
 }
 
 repos.on('info', function(info) {
-    exec(info.exists
-        ? 'cd ' + info.cwd + '; git fetch --all -p'
-        : 'git clone --mirror ' + info.repo + ' ' + info.cwd, function(err) {
-        if (!err) {
-            info.accept();
-        } else {
-            info.reject();
+
+    lock(
+        info.repo,
+        function(cb) {
+            exec(info.exists
+                    ? 'cd ' + info.cwd + '; git fetch --all -p'
+                    : 'git clone --mirror ' + info.repo + ' ' + info.cwd,
+                cb)
+        },
+        function(err) {
+            if (!err) {
+                info.accept();
+            } else {
+                info.reject();
+            }
         }
-    })
+    )
 });
 
 var server = http.createServer(function (req, res) {
