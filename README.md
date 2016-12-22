@@ -4,7 +4,7 @@
 
 Easy access to private repos for automation services.
 
-Git Proxy exists to organize a painful and secure access to private repos for automation services like Rancher, Jenkins, TeamCity, etc. View on Github
+Git Proxy exists to organize a painful and secure access to private repos for automation services.
 
 ## Installation
 You can install Git Proxy using Docker container `extremeprog/git-proxy`. When running container specify a private key to access to repo. Public key should be added to those services which you want to provide access to. We recommend to create an additional pair for these purposes.
