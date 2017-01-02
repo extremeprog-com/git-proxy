@@ -1,7 +1,5 @@
 # Git Proxy
 
-![Git Proxy Service](git-proxy-sm.png) 
-
 Easy access to private repos for automation services.
 
 Git Proxy exists to organize a painful and secure access to private repos for automation services.
