@@ -8,8 +8,7 @@ Git Proxy exists to organize a painful and secure access to private repos for au
 You can install Git Proxy using Docker container `extremeprog/git-proxy`. When running container specify a private key to access to repo. Public key should be added to those services which you want to provide access to. We recommend to create an additional pair for these purposes.
 
 ```bash
-$ docker run -d -it --restart=always --name=git-proxy \ 
--e PRIVATE_KEY="..." extremeprog/git-proxy 
+$ docker run -d -it --restart=always --name=git-proxy -e PRIVATE_KEY="..." extremeprog/git-proxy 
 ```
 
 ### Rancher
